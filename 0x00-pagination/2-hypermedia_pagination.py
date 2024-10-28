@@ -48,11 +48,12 @@ class Server:
     def get_hyper(self, page: int = 1, page_size: int = 10) -> dict:
         """Return a dict"""
         res = self.get_page(page, page_size)
+        total_page = math.ceil(len(self.__dataset) / page_size)
         return {
                 "page_size": len(res),
                 "page": page,
                 "data": res,
-                "next_page": page + 1 if len(res) > 1 else None,
-                "prev_page": page - 1 if len(res) > 1 else None,
-                "total_pages": math.ceil(len(self.__dataset) / page_size)
+                "next_page": page + 1 if (page + 1) < total_page else None,
+                "prev_page": page - 1 if page > 1 else None,
+                "total_pages": total_page
                 }
