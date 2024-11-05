@@ -2,7 +2,15 @@
 """setup a basic Flask app"""
 from flask import Flask, render_template
 from flask_babel import Babel
-from config import Config
+
+
+class Config:
+    """Config Class"""
+
+    LANGUAGES = ["en", "fr"]
+    BABEL_DEFAULT_LOCALE = "en"
+    BABEL_DEFAULT_TIMEZONE = "UTC"
+
 
 app = Flask(__name__)
 app.config.from_object(Config)
