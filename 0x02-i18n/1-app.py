@@ -6,7 +6,7 @@ from config import Config
 
 app = Flask(__name__)
 app.config.from_object(Config)
-babel = Babel(app, default_locale=Config.LANGUAGES[0], timezone="UTC")
+babel = Babel(app, default_locale=Config.LANGUAGES[0], default_timezone="UTC")
 
 
 @app.route('/')
@@ -16,4 +16,4 @@ def home():
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True, port=5001)
