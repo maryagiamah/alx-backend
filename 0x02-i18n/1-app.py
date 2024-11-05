@@ -6,7 +6,7 @@ from config import Config
 
 app = Flask(__name__)
 app.config.from_object(Config)
-babel = Babel(app, default_locale=Config.LANGUAGES[0], default_timezone="UTC")
+babel = Babel(app)
 
 
 @app.route('/')
