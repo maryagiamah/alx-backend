@@ -5,6 +5,7 @@ from flask_babel import Babel
 from typing import Dict
 import pytz
 
+
 class Config:
     """Config Class"""
 
@@ -52,7 +53,7 @@ def get_user() -> Dict:
     return None
 
 
-@babel.timezoneselector 
+@babel.timezoneselector
 def get_timezone():
     """determine the best match with our supported languages"""
 
