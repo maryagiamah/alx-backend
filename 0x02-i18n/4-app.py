@@ -23,7 +23,7 @@ def get_locale():
 
     lang = request.args.get('locale')
 
-    if lang in Config['LANGUAGES']:
+    if lang in app.config['LANGUAGES']:
         return lang
     return request.accept_languages.best_match(app.config['LANGUAGES'])
 
