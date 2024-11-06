@@ -34,9 +34,4 @@ msgstr "Vous êtes connecté en tant que %(username)s."
 
 #: templates/5-index.html:11 templates/6-index.html:11
 msgid "not_logged_in"
-<<<<<<< HEAD
-msgstr "Vous n'tes pas connet_."
-
-=======
 msgstr "Vous n'êtes pas connecté."
->>>>>>> 9206b9ada5765b357de3b7da02cd8401be861425
