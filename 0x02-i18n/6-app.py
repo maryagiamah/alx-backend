@@ -34,6 +34,8 @@ def get_locale() -> str:
         lang = request.args.get('locale')
     elif g.user:
         lang = g.user.get('locale')
+    elif request.headers.get('locale'):
+        lang = request.headers.get('locale')
     else:
         lang = None
 
