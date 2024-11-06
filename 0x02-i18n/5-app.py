@@ -38,8 +38,10 @@ def get_locale() -> str:
 
 def get_user() -> Dict:
     """Returns a user dictionary or None if the ID cannot be found"""
-    login_id = request.get.args('login_as')
-    return users.get(login_id, None)
+    login_id = request.args.get('login_as')
+    if login_id:
+        return users.get(int(login_id), None)
+    return None
 
 
 @app.before_request
@@ -56,4 +58,4 @@ def home():
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True, port="5001")
