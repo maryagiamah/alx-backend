@@ -4,6 +4,7 @@ from flask import Flask, render_template, request, g
 from flask_babel import Babel
 from typing import Dict
 
+
 class Config:
     """Config Class"""
 
@@ -58,4 +59,4 @@ def home():
 
 
 if __name__ == '__main__':
-    app.run(debug=True, port="5001")
+    app.run(debug=True)
