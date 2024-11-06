@@ -3,7 +3,9 @@
 from flask import Flask, render_template, request, g
 from flask_babel import Babel
 from typing import Dict
+from datetime import datetime
 import pytz
+from pytz import timezone
 
 
 class Config:
@@ -74,13 +76,19 @@ def before_request() -> None:
     """use get_user to find a user if any"""
     user = get_user()
     g.user = user
+    g.time = datetime.now(
+            timezone(
+                get_timezone()
+            )
+        ).strftime("%b %d, %Y, %I:%M:%S %p")
 
 
 @app.route('/')
 def home():
     """Return 0-index.html content"""
-    return render_template('7-index.html')
+
+    return render_template('index.html')
 
 
 if __name__ == '__main__':
-    app.run(debug=True, port=5002)
+    app.run(debug=True)
